@@ -3,6 +3,7 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import '../screens/home_screen.dart';
 import '../screens/profile_screen.dart';
 import '../screens/notifications_screen.dart';
+import '../screens/explore_screen.dart';
 import '../design_system/app_icons.dart';
 
 class CustomBottomNav extends StatelessWidget {
@@ -65,6 +66,11 @@ class _BottomBarState extends State<_BottomBar> {
       // Home
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const HomeScreen()),
+      );
+    } else if (index == 1) {
+      // Explore
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const ExploreScreen()),
       );
     } else if (index == 3) {
       // Notifications

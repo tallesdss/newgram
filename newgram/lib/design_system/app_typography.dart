@@ -87,5 +87,12 @@ class AppTypography {
     fontSize: fontSize12,
     color: Colors.black,
   );
+
+  // Corpo de Texto Regular
+  static const TextStyle bodyRegular = TextStyle(
+    fontSize: fontSize14,
+    fontWeight: regular,
+    color: Colors.black,
+  );
 }
 
