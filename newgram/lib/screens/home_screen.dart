@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
         separatorBuilder: (context, index) => const SizedBox.shrink(),
         itemCount: 5,
       ),
-      bottomNavigationBar: const CustomBottomNav(),
+      bottomNavigationBar: const CustomBottomNav(selectedIndex: 0),
     );
   }
 }

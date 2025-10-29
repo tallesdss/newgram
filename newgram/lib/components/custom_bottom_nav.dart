@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import '../screens/home_screen.dart';
 import '../screens/profile_screen.dart';
+import '../screens/notifications_screen.dart';
+import '../design_system/app_icons.dart';
 
 class CustomBottomNav extends StatelessWidget {
-  const CustomBottomNav({super.key});
+  final int selectedIndex;
+  const CustomBottomNav({super.key, this.selectedIndex = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +28,9 @@ class CustomBottomNav extends StatelessWidget {
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
-          child: const Padding(
-            padding: EdgeInsets.only(top: 8),
-            child: _BottomBar(),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: _BottomBar(selectedIndex: selectedIndex),
           ),
         ),
       ),
@@ -36,7 +39,8 @@ class CustomBottomNav extends StatelessWidget {
 }
 
 class _BottomBar extends StatefulWidget {
-  const _BottomBar();
+  final int selectedIndex;
+  const _BottomBar({required this.selectedIndex});
 
   @override
   State<_BottomBar> createState() => _BottomBarState();
@@ -44,6 +48,12 @@ class _BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<_BottomBar> {
   int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.selectedIndex;
+  }
 
   void _onTabTapped(int index, BuildContext context) {
     setState(() {
@@ -55,6 +65,11 @@ class _BottomBarState extends State<_BottomBar> {
       // Home
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const HomeScreen()),
+      );
+    } else if (index == 3) {
+      // Notifications
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const NotificationsScreen()),
       );
     } else if (index == 4) {
       // Profile
@@ -78,21 +93,21 @@ class _BottomBarState extends State<_BottomBar> {
       onTap: (index) => _onTabTapped(index, context),
       items: [
         const BottomNavigationBarItem(
-          icon: Icon(FeatherIcons.home),
+          icon: Icon(AppIcons.home),
           label: 'Home',
         ),
         const BottomNavigationBarItem(
-          icon: Icon(FeatherIcons.search),
+          icon: Icon(AppIcons.search),
           label: 'Search',
         ),
         const BottomNavigationBarItem(
-          icon: Icon(FeatherIcons.plusSquare),
+          icon: Icon(AppIcons.add),
           label: 'Add',
         ),
         BottomNavigationBarItem(
           icon: Stack(
             children: [
-              const Icon(FeatherIcons.heart),
+              const Icon(AppIcons.heart),
               Positioned(
                 right: 0,
                 top: 0,
@@ -110,7 +125,7 @@ class _BottomBarState extends State<_BottomBar> {
           label: 'Likes',
         ),
         const BottomNavigationBarItem(
-          icon: Icon(FeatherIcons.user),
+          icon: Icon(AppIcons.user),
           label: 'Profile',
         ),
       ],
