@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +32,7 @@ class InstagramProfileScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.settings_outlined, color: Colors.black),
+          icon: const Icon(FeatherIcons.settings, color: Colors.black),
           onPressed: () {},
         ),
         title: Row(
@@ -46,13 +47,13 @@ class InstagramProfileScreen extends StatelessWidget {
               ),
             ),
             SizedBox(width: 4),
-            Icon(Icons.keyboard_arrow_down, color: Colors.black, size: 20),
+            Icon(FeatherIcons.chevronDown, color: Colors.black, size: 20),
           ],
         ),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.menu, color: Colors.black),
+            icon: const Icon(FeatherIcons.moreHorizontal, color: Colors.black),
             onPressed: () {},
           ),
         ],
@@ -146,7 +147,7 @@ class InstagramProfileScreen extends StatelessWidget {
                                   shape: BoxShape.circle,
                                 ),
                                 child: const Icon(
-                                  Icons.add,
+                                  FeatherIcons.plus,
                                   color: Colors.white,
                                   size: 16,
                                 ),
@@ -336,12 +337,12 @@ class InstagramProfileScreen extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  _buildTabIcon(Icons.grid_on, true),
-                  _buildTabIcon(Icons.video_collection_outlined, false),
-                  _buildTabIcon(Icons.person_pin_outlined, false),
-                  _buildTabIcon(Icons.bookmark_border, false),
-                  _buildTabIcon(Icons.link, false),
-                  _buildTabIcon(Icons.list_alt, false),
+                  _buildTabIcon(FeatherIcons.grid, true),
+                  _buildTabIcon(FeatherIcons.video, false),
+                  _buildTabIcon(FeatherIcons.tag, false),
+                  _buildTabIcon(FeatherIcons.bookmark, false),
+                  _buildTabIcon(FeatherIcons.link, false),
+                  _buildTabIcon(FeatherIcons.list, false),
                 ],
               ),
             ),
@@ -388,21 +389,21 @@ class InstagramProfileScreen extends StatelessWidget {
         showUnselectedLabels: false,
         items: [
           const BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
+            icon: Icon(FeatherIcons.home),
             label: 'Home',
           ),
           const BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: Icon(FeatherIcons.search),
             label: 'Search',
           ),
           const BottomNavigationBarItem(
-            icon: Icon(Icons.add_box_outlined),
+            icon: Icon(FeatherIcons.plusSquare),
             label: 'Add',
           ),
           BottomNavigationBarItem(
             icon: Stack(
               children: [
-                const Icon(Icons.favorite_border),
+                const Icon(FeatherIcons.heart),
                 Positioned(
                   right: 0,
                   top: 0,
@@ -420,7 +421,7 @@ class InstagramProfileScreen extends StatelessWidget {
             label: 'Likes',
           ),
           const BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(FeatherIcons.user),
             label: 'Profile',
           ),
         ],
