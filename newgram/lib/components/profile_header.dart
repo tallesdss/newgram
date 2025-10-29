@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'contact_button.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({super.key});
@@ -212,27 +213,7 @@ class ProfileHeader extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF0095F6),
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: const Text(
-                    'Contact',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14,
-                    ),
-                  ),
-                ),
-              ),
+              const Expanded(child: ContactButton()),
             ],
           ),
         ],
