@@ -58,6 +58,7 @@ class InstagramProfileScreen extends StatelessWidget {
           ),
         ],
       ),
+      extendBody: true,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -380,51 +381,76 @@ class InstagramProfileScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: 4,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: [
-          const BottomNavigationBarItem(
-            icon: Icon(FeatherIcons.home),
-            label: 'Home',
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(left: 16, right: 16, bottom: 5),
+        child: Container(
+          height: 80,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 10,
+                offset: const Offset(0, -2),
+              ),
+            ],
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(FeatherIcons.search),
-            label: 'Search',
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(FeatherIcons.plusSquare),
-            label: 'Add',
-          ),
-          BottomNavigationBarItem(
-            icon: Stack(
-              children: [
-                const Icon(FeatherIcons.heart),
-                Positioned(
-                  right: 0,
-                  top: 0,
-                  child: Container(
-                    width: 8,
-                    height: 8,
-                    decoration: const BoxDecoration(
-                      color: Colors.red,
-                      shape: BoxShape.circle,
-                    ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                currentIndex: 4,
+                selectedItemColor: Colors.black,
+                unselectedItemColor: Colors.grey,
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
+                backgroundColor: Colors.white,
+                elevation: 0,
+                items: [
+                  const BottomNavigationBarItem(
+                    icon: Icon(FeatherIcons.home),
+                    label: 'Home',
                   ),
-                ),
-              ],
+                  const BottomNavigationBarItem(
+                    icon: Icon(FeatherIcons.search),
+                    label: 'Search',
+                  ),
+                  const BottomNavigationBarItem(
+                    icon: Icon(FeatherIcons.plusSquare),
+                    label: 'Add',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Stack(
+                      children: [
+                        const Icon(FeatherIcons.heart),
+                        Positioned(
+                          right: 0,
+                          top: 0,
+                          child: Container(
+                            width: 8,
+                            height: 8,
+                            decoration: const BoxDecoration(
+                              color: Colors.red,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    label: 'Likes',
+                  ),
+                  const BottomNavigationBarItem(
+                    icon: Icon(FeatherIcons.user),
+                    label: 'Profile',
+                  ),
+                ],
+              ),
             ),
-            label: 'Likes',
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(FeatherIcons.user),
-            label: 'Profile',
-          ),
-        ],
+        ),
       ),
     );
   }
