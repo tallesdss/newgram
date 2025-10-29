@@ -6,6 +6,7 @@ import 'components/story_highlights.dart';
 import 'components/profile_tab_bar.dart';
 import 'components/photo_grid.dart';
 import 'components/custom_bottom_nav.dart';
+import 'design_system/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,10 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.white,
-      ),
+      theme: AppTheme.lightTheme,
       home: const InstagramProfileScreen(),
     );
   }
